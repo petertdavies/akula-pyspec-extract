@@ -1,0 +1,36 @@
+[package]
+name = "akula-pyspec-extract"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+akula = { git = "https://github.com/akula-bft/akula.git" }
+croaring = { git = "https://github.com/saulius/croaring-rs" }
+tracing = "0.1"
+tracing-futures = "0.2"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+mdbx = { package = "libmdbx", version = "0.1" }
+anyhow = { version = "1.0.58", features = ["backtrace"]}
+tempfile = "3"
+ethereum-pyspec-db = { git = "https://github.com/petertdavies/rust-pyspec-db.git", rev = "0b4bc4d455159f0d8c996a85b7afb7df72e152eb" }
+ethereum-types = "0.12.1"
+bytes = "1.1.0"
+clap = { version = "3.2.10", features = ["derive"] }
+directories = "4.0.1"
+
+[patch.crates-io]
+arrayvec = { git = "https://github.com/vorot93/arrayvec", branch = "pop-unchecked" }
+enr = { git = "https://github.com/rust-ethereum/enr" }
+ethnum = { git = "https://github.com/vorot93/ethnum-rs", branch = "impls" }
+
+[profile.production]
+inherits = "release"
+panic = "abort"
+codegen-units = 1
+lto = true
+
+[profile.bench]
+codegen-units = 1
+lto = true
