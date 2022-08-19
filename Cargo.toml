@@ -22,7 +22,7 @@ directories = "4.0.1"
 
 [patch.crates-io]
 arrayvec = { git = "https://github.com/vorot93/arrayvec", branch = "pop-unchecked" }
-enr = { git = "https://github.com/rust-ethereum/enr" }
+enr = { git = "https://github.com/sigp/enr" }
 ethnum = { git = "https://github.com/vorot93/ethnum-rs", branch = "impls" }
 
 [profile.production]
