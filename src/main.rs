@@ -289,7 +289,7 @@ fn main_() -> anyhow::Result<()> {
     let mut pyspec_db = ethereum_pyspec_db::Db::file(db_path)?;
     let mut pyspec_tx = pyspec_db.begin_mut()?;
 
-    let env = open_db(AkulaDataDir::default())?;
+    let env = open_db(opts.akula_data_dir)?;
     let tx = env.begin()?;
     let mut written_items = 0_usize;
 
